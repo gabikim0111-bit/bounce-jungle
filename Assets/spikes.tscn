@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dr6v1ct2gvr6w"]
+
+[ext_resource type="Texture2D" uid="uid://cfv1sbsp6u61g" path="res://Assets/craftpix-891179-snow-2d-game-tileset-pixel-art/2 Background/Layers/6.png" id="1_lubkw"]
+[ext_resource type="PackedScene" uid="uid://wco8nk6qe6ky" path="res://Assets/killzone.tscn" id="2_lubkw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(12.5, 4.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kill"]
+size = Vector2(14.5, 7)
+
+[node name="Spikes" type="StaticBody2D" unique_id=676362044]
+texture_filter = 1
+position = Vector2(2, -2)
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1296222914]
+position = Vector2(-2.562501, -7.812504)
+scale = Vector2(0.026258683, 0.0659722)
+texture = ExtResource("1_lubkw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=834456617]
+position = Vector2(-2.75, 0.25)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Killzone" parent="." unique_id=543266700 instance=ExtResource("2_lubkw")]
+position = Vector2(-2, 1.5)
+
+[node name="SpikeKillShape" type="CollisionShape2D" parent="Killzone" unique_id=1801007188]
+position = Vector2(-0.75, -1.5)
+shape = SubResource("RectangleShape2D_kill")

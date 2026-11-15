@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://wco8nk6qe6ky"]
+
+[ext_resource type="Script" uid="uid://8qo5oehnpke2" path="res://Assets/killzone.gd" id="1_5yiqh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yxree"]
+radius = 5.0
+height = 10.0
+
+[node name="Killzone" type="Area2D" unique_id=543266700]
+collision_mask = 2
+script = ExtResource("1_5yiqh")
+
+[node name="Timer" type="Timer" parent="." unique_id=652608754]
+wait_time = 0.67
+one_shot = true
+
+[node name="killzonecoll" type="CollisionShape2D" parent="." unique_id=646260705]
+shape = SubResource("CapsuleShape2D_yxree")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

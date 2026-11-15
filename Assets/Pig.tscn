@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cew4e7kc1tx0o"]
+
+[ext_resource type="Texture2D" uid="uid://c6fakyv4ff2r6" path="res://Assets/pixilart-sprite.png" id="1_84r5n"]
+[ext_resource type="Script" uid="uid://0oj1miwlknnl" path="res://Assets/pig.gd" id="1_x2rqn"]
+[ext_resource type="AudioStream" uid="uid://c7xhhggfjtd3r" path="res://Assets/audio/jump.mp3" id="3_jump"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2rqn"]
+atlas = ExtResource("1_84r5n")
+region = Rect2(0, 0, 63, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so2og"]
+atlas = ExtResource("1_84r5n")
+region = Rect2(63, 0, 63, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_td88h"]
+atlas = ExtResource("1_84r5n")
+region = Rect2(126, 0, 63, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2t1c3"]
+atlas = ExtResource("1_84r5n")
+region = Rect2(189, 0, 63, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eem88"]
+atlas = ExtResource("1_84r5n")
+region = Rect2(252, 0, 63, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0afhb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2rqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so2og")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_td88h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2t1c3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eem88")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w0xt8"]
+radius = 12.0415945
+
+[node name="PIG" type="CharacterBody2D" unique_id=1469383923]
+collision_layer = 2
+script = ExtResource("1_x2rqn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1702659847]
+light_mask = 2
+texture_filter = 1
+position = Vector2(-1.1920929e-07, 5.9604645e-08)
+scale = Vector2(1.5, 1.662)
+sprite_frames = SubResource("SpriteFrames_0afhb")
+autoplay = "default"
+frame_progress = 0.49791014
+offset = Vector2(-0.33333206, -8.125198)
+
+[node name="CollisionShapePlayer" type="CollisionShape2D" parent="." unique_id=1577243087]
+light_mask = 2
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_w0xt8")
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jump")
+volume_db = -8.0
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=130627572]
+target_position = Vector2(0, 14)
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=868129721]
+target_position = Vector2(11, 12)
+
+[node name="RayCast2D3" type="RayCast2D" parent="." unique_id=1500162339]
+target_position = Vector2(-12, 12)

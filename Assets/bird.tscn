@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://cqplsnexq87r3"]
+
+[ext_resource type="Script" uid="uid://mn2g5rifkp1e" path="res://Assets/rabbit.gd" id="1_v6gvs"]
+[ext_resource type="Texture2D" uid="uid://b17wq008qnbvb" path="res://Assets/pixilart-sprite (3).png" id="2_pyokg"]
+[ext_resource type="PackedScene" uid="uid://wco8nk6qe6ky" path="res://Assets/killzone.tscn" id="3_p7pdp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qf27"]
+atlas = ExtResource("2_pyokg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxsvu"]
+atlas = ExtResource("2_pyokg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cllo8"]
+atlas = ExtResource("2_pyokg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2m7a"]
+atlas = ExtResource("2_pyokg")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkvxm"]
+atlas = ExtResource("2_pyokg")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pflm5"]
+atlas = ExtResource("2_pyokg")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffvtd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxsvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cllo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2m7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkvxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pflm5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bird"]
+size = Vector2(22, 16)
+
+[node name="bird" type="CharacterBody2D" unique_id=488293445]
+collision_layer = 4
+script = ExtResource("1_v6gvs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1734556762]
+texture_filter = 1
+scale = Vector2(1, 1.046875)
+sprite_frames = SubResource("SpriteFrames_ffvtd")
+autoplay = "default"
+frame_progress = 0.23223922
+offset = Vector2(0, -23.880596)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=252826692]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_bird")
+
+[node name="Killzone" parent="." unique_id=543266700 instance=ExtResource("3_p7pdp")]
+position = Vector2(0, -1)
+scale = Vector2(1.4, 1.4)
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=1846281077]
+position = Vector2(0, -1)
+target_position = Vector2(17, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=663745670]
+position = Vector2(0, -1)
+target_position = Vector2(-17, 0)
+
+[node name="GroundRight" type="RayCast2D" parent="." unique_id=274776730]
+position = Vector2(13, 3)
+target_position = Vector2(0, 10)
+
+[node name="GroundLeft" type="RayCast2D" parent="." unique_id=1623255380]
+position = Vector2(-13, 3)
+target_position = Vector2(0, 10)

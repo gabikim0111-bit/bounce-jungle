@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dd8kwpshwyu2t"]
+
+[ext_resource type="Texture2D" uid="uid://bou774obycnms" path="res://Assets/craftpix-891179-snow-2d-game-tileset-pixel-art/1 Tiles/pixil-frame-0 (2).png" id="1_hjag7"]
+[ext_resource type="Script" uid="uid://ksfbcaev45ja" path="res://Assets/platform.gd" id="2_ge8bi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0xt8"]
+size = Vector2(30, 10)
+
+[node name="platform" type="StaticBody2D" unique_id=1719500818]
+texture_filter = 1
+script = ExtResource("2_ge8bi")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=114096973]
+texture = ExtResource("1_hjag7")
+offset = Vector2(1, 9)
+
+[node name="platform" type="CollisionShape2D" parent="." unique_id=1015611692]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_w0xt8")
+one_way_collision = true

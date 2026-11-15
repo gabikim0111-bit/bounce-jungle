@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b746uonkmf7qu"]
+
+[ext_resource type="PackedScene" uid="uid://dd8kwpshwyu2t" path="res://Assets/Platform.tscn" id="1_x4t2n"]
+[ext_resource type="Texture2D" uid="uid://bqvpqbkkc3p2h" path="res://Assets/craftpix-891179-snow-2d-game-tileset-pixel-art/1 Tiles/Tile_31.png" id="2_h5aut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7bxi"]
+size = Vector2(27, 25)
+
+[node name="platform" unique_id=1719500818 instance=ExtResource("1_x4t2n")]
+
+[node name="sprite" parent="." index="0" unique_id=114096973]
+position = Vector2(-1, -8)
+texture = ExtResource("2_h5aut")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1015611692]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_f7bxi")
